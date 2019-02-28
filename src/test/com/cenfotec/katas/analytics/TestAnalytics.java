@@ -4,11 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.cenfotec.katas.analytics.Analytics;
+
 class TestAnalytics {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void masLargaTest() throws Exception {
+		String[] result = {"manzana"};
+		String[] test = Analytics.masLarga("manzana,mala,pelota,hola,caro");
+		
+		assertEquals(result[0], test[0], "*Should be [manzana]");
 	}
 
 }
