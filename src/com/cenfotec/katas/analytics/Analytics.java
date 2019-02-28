@@ -5,11 +5,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.text.StyledEditorKit.BoldAction;
+
 public class Analytics {
 	
 	public static String[] masLarga(String palabras) throws Exception {
 		List<String> listaPalabras = new ArrayList<String>();
-		String[] result = new String[5];
+		String[] result = new String[palabras.split(",").length];
 		
 		try {
 			listaPalabras = Arrays.asList(palabras.split(","));
@@ -20,9 +22,11 @@ public class Analytics {
 				
 				System.out.println(palabra + " -- " +palabraNext);
 				if (palabra.length() <  palabraNext.length()) {
-					result[0] = palabraNext;
+					if (isNotValue(result, palabraNext))
+							result[i] = palabraNext;
 				} else {
-					result[0] = palabra;
+					if (isNotValue(result, palabra))
+							result[i] = palabra;
 				}
 			}
 		} catch (Exception e) {
@@ -30,5 +34,14 @@ public class Analytics {
 		}
 	
 		return result;
+	}
+	
+	public static Boolean isNotValue(String[] result, String value) {
+		for (String elem : result) {
+			if (elem == value) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

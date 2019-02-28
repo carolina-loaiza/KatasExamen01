@@ -10,10 +10,15 @@ class TestAnalytics {
 
 	@Test
 	public void masLargaTest() throws Exception {
-		String[] result = {"manzana"};
-		String[] test = Analytics.masLarga("manzana,mala,pelota,hola,caro");
+		String[] result1 = {"manzana"};
+		String[] test1 = Analytics.masLarga("manzana,mala,pelota,hola,caro");
 		
-		assertEquals(result[0], test[0], "*Should be [manzana]");
+		assertEquals(result1[0], test1[0], "*Should be [manzana]");
+		
+		String[] result2 = {"manzana", "corazon"};
+		String[] test2 = Analytics.masLarga("manzana,corazon,mala,pelota,hola,caro");
+		
+		assertEquals(result2[1], test2[1], "*Should be [corazon]");
 	}
 
 }
