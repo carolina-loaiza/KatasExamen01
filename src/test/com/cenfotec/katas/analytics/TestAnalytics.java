@@ -20,5 +20,13 @@ class TestAnalytics {
 		
 		assertEquals(result2[1], test2[1], "*Should be [corazon]");
 	}
+	
+	@Test
+	public void masCortaTest() throws Exception {
+		String[] result1 = {"mala"};
+		String[] test1 = Analytics.masCorta("manzana,mala,pelota");
+		
+		assertEquals(result1[0], test1[0], "*Should be [mala]");
+	}
 
 }
